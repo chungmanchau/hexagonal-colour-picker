@@ -196,7 +196,7 @@ body {
   background: #333; }
 
 .wrapper {
-  width: 70%;
+  width: 60%;
   margin: 0 auto; }
 
 h1 {
@@ -214,8 +214,9 @@ h1 {
   width: 24%;
   margin: 0 .5% -6%;
   padding-bottom: 27.8%;
-  transition: .2s transform ease-in-out;
   cursor: pointer;
+  transition: .3s transform ease-in-out;
+  transform: scale(0.9);
   -webkit-backface-visibility: hidden;
   /* Chrome, Safari, Opera */
   backface-visibility: hidden; }
@@ -224,19 +225,20 @@ h1 {
   .hex-container:nth-child(7n+4) {
     clear: left; }
   .hex-container:hover {
-    z-index: 20; }
+    z-index: 20;
+    transform: scale(1); }
     .hex-container:hover span {
       transform: translateY(0);
       background: transparent; }
   .hex-container .hex-inner {
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     position: absolute;
-    left: 0;
+    top: 0;
     right: 0;
     bottom: 0;
-    top: 0;
+    left: 0;
     overflow: hidden;
-    transform: rotate(-60deg) skewY(30deg); }
+    transform: rotate(-60deg) skewY(30deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); }
   .hex-container .hex {
     position: absolute;
     overflow: hidden;
@@ -247,40 +249,40 @@ h1 {
   .hex-container .img {
     position: absolute;
     display: flex;
-    align-items: center;
-    text-align: center;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    text-align: center;
+    align-items: center; }
   .hex-container span {
+    position: absolute;
+    box-sizing: border-box;
     width: 100%;
     padding: 5%;
-    box-sizing: border-box;
     font-weight: 300;
-    position: absolute;
-    transition: transform .2s, background .5s .5s;
+    transition: transform .35s, background .5s 1s;
     text-align: center;
-    -webkit-backface-visibility: hidden;
     background: rgba(0, 0, 0, 0.2);
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
   .hex-container .colour {
+    z-index: 1;
     bottom: 50%;
     padding-top: 50%;
-    font-size: 1.5em;
-    z-index: 1;
+    font-size: 1.2em;
     -webkit-transform: translateY(-100%) translatez(-1px);
     transform: translateY(-100%) translatez(-1px); }
     .hex-container .colour:after {
-      content: '';
       position: absolute;
       bottom: 0;
       left: 45%;
       width: 10%;
+      content: '';
       text-align: center;
-      border-bottom: 1px solid #fff; }
+      border-bottom: 2px solid #fff; }
   .hex-container .code {
     top: 50%;
     padding-bottom: 50%;
-    font-size: 1.6em;
+    font-size: 1.4em;
     -webkit-transform: translateY(100%) translatez(-1px);
     transform: translateY(100%) translatez(-1px); }
 
