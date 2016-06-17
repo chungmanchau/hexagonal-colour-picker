@@ -213,6 +213,13 @@ h1 {
   font-weight: 300;
   transition: .2s background ease-in-out; }
 
+.sub-title {
+  width: 100%;
+  color: #FFF;
+  text-transform: none;
+  line-height: 1.2em;
+  font-size: .8em; }
+
 .hex-container {
   position: relative;
   float: left;
@@ -226,13 +233,21 @@ h1 {
   -webkit-backface-visibility: hidden;
   /* Chrome, Safari, Opera */
   backface-visibility: hidden; }
+  .hex-container.copied {
+    animation: tada 1.2s; }
+    .hex-container.copied .hex:before {
+      opacity: 1; }
+    .hex-container.copied:hover .colour {
+      transform: translateY(-100%); }
+    .hex-container.copied:hover .code {
+      transform: translateY(100%); }
   .hex-container:nth-child(7n + 1) {
     margin-left: 13%; }
   .hex-container:nth-child(7n+4) {
     clear: left; }
   .hex-container:hover {
     z-index: 20;
-    transform: scale(1.1); }
+    transform: scale(0.9); }
     .hex-container:hover span {
       transform: translateY(0);
       background: transparent; }
@@ -255,6 +270,20 @@ h1 {
       color: #3e464c; }
     .hex-container .hex.label-black .colour:after {
       border-color: #3e464c; }
+    .hex-container .hex:before {
+      content: "Copied To Clipboard!";
+      text-transform: uppercase;
+      position: absolute;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.2);
+      width: 100%;
+      padding-top: 50%;
+      height: 100%;
+      font-size: 1em;
+      z-index: 100;
+      color: #FFF;
+      opacity: 0;
+      transition: .2s opacity ease-in; }
   .hex-container .img {
     position: absolute;
     display: flex;
@@ -269,7 +298,7 @@ h1 {
     width: 100%;
     padding: 5%;
     font-weight: 300;
-    transition: transform .2s, background .5s 1s;
+    transition: transform .3s;
     text-align: center;
     text-transform: uppercase;
     -webkit-backface-visibility: hidden;
@@ -341,5 +370,22 @@ h1 {
 
 .cf:after {
   clear: both; }
+
+@-webkit-keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); }
+  10%, 20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg); }
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); } }
 
 /*# sourceMappingURL=style.css.map */

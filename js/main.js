@@ -1,10 +1,10 @@
 $(function(){
 	$('.hex-container').click(function(){
 		copyToClipboard(this);
-		$(this).addClass("loading");
+		$(this).addClass("copied");
 		setTimeout($.proxy(function() {
-			$(this).removeClass("loading");
-		}, this), 1000);
+			$(this).removeClass("copied");
+		}, this), 1500);
 
 	});
 

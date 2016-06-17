@@ -43,6 +43,14 @@ h1 {
     transition: .2s background ease-in-out;
 }
 
+.sub-title {
+    // text-align: center;
+    width: 100%;
+    color: #FFF;
+    text-transform: none;
+    line-height: 1.2em;
+    font-size: .8em;
+}
 .hex-container {
     position: relative;
 
@@ -59,6 +67,23 @@ h1 {
 
     -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
     backface-visibility: hidden;
+    &.copied {
+        animation: tada 1.2s;
+        .hex {
+            &:before {
+                opacity: 1;
+            }
+
+        }
+        &:hover {
+            .colour {
+                transform: translateY(-100%);
+            }
+            .code {
+                transform: translateY(100%);
+            }
+        }
+    }
     &:nth-child(7n + 1) {
         margin-left: 13%;
     }
@@ -68,11 +93,12 @@ h1 {
     &:hover {
         z-index: 20;
 
-        transform: scale(1.1);
+        transform: scale(.9);
         span {
             transform: translateY(0);
 
             background: rgba(0,0,0,.0);
+
         }
     }
     .hex-inner {
@@ -107,6 +133,21 @@ h1 {
                 }
             }
         }
+        &:before {
+            content: "Copied To Clipboard!";
+            text-transform: uppercase;
+            position: absolute;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+            width: 100%;
+            padding-top: 50%;
+            height: 100%;
+            font-size: 1em;
+            z-index: 100;
+            color: #FFF;
+            opacity: 0;
+            transition: .2s opacity ease-in;
+        }
     }
     .img {
         position: absolute;
@@ -130,8 +171,7 @@ h1 {
 
         font-weight: 300;
 
-        transition: transform .2s,
-        background .5s 1s;
+        transition: transform .3s;
         text-align: center;
         text-transform: uppercase;
 
@@ -202,4 +242,32 @@ h1 {
 
 .cf:after {
     clear: both;
+}
+
+
+@-webkit-keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
+10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+}
+
+30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+}
+
+40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+}
+
+to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
 }
