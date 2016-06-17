@@ -57,13 +57,13 @@ h1 {
     float: left;
     overflow: hidden;
 
-    width: 24%;
-    margin: 0 .5% -6%;
-    padding-bottom: 27.8%;
+    width: 21.8%;
+    margin: 0 1.6% -4%;
+    padding-bottom: 25.2%;
 
     cursor: pointer;
     transition: .2s transform ease-in;
-    transform: scale(.9);
+    transform: scale(1);
 
     -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
     backface-visibility: hidden;
@@ -85,15 +85,13 @@ h1 {
         }
     }
     &:nth-child(7n + 1) {
-        margin-left: 13%;
+        margin-left: 14.2%;
     }
     &:nth-child(7n+4) {
         clear: left;
     }
     &:hover {
         z-index: 20;
-
-        transform: scale(.9);
         span {
             transform: translateY(0);
 
