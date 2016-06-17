@@ -16,8 +16,8 @@ body {
     height: 100%;
 
     font-family: 'Open Sans';
-
     background: #333;
+    
 }
 
 
@@ -25,18 +25,22 @@ body {
 .wrapper {
     width: 60%;
     margin: 0 auto;
+    background: #333;
+    padding:1%  2% 5%;
 }
 
 h1 {
-    margin: 0 0 40px;
-    padding: 10px 0 0 10px;
-
-    font-size: 1.5em;
-
+    padding: 10px;
+    margin:0 0 10px; 
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     text-align: center;
     text-transform: uppercase;
 
     color: #fff;
+    background: #00a6de;
+    font-weight: 300;
+    transition: .2s background ease-in-out;
 }
 
 .hex-container {
@@ -50,11 +54,11 @@ h1 {
     padding-bottom: 27.8%;
 
     cursor: pointer;
-    transition: .3s transform ease-in-out;
+    transition: .2s transform ease-in;
     transform: scale(.9);
 
     -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
-            backface-visibility: hidden;
+    backface-visibility: hidden;
     &:nth-child(7n + 1) {
         margin-left: 13%;
     }
@@ -64,7 +68,7 @@ h1 {
     &:hover {
         z-index: 20;
 
-        transform: scale(1);
+        transform: scale(1.1);
         span {
             transform: translateY(0);
 
@@ -93,8 +97,16 @@ h1 {
         height: 100%;
 
         transform: skewY(-30deg) rotate(60deg);
-
-        color: #fff;
+        &.label-black {
+            span {
+                color: #3e464c;
+            }
+            .colour {
+                &:after {
+                    border-color: #3e464c;
+                }
+            }
+        }
     }
     .img {
         position: absolute;
@@ -110,6 +122,7 @@ h1 {
     }
     span {
         position: absolute;
+        z-index: 2;
 
         box-sizing: border-box;
         width: 100%;
@@ -117,14 +130,16 @@ h1 {
 
         font-weight: 300;
 
-        transition: transform .35s,
+        transition: transform .2s,
         background .5s 1s;
         text-align: center;
+        text-transform: uppercase;
 
-        background: rgba(0,0,0,.2);
+        // background: rgba(0,0,0,.2);
 
         -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
+        backface-visibility: hidden;
+        color: #FFF;
     }
     .colour {
         z-index: 1;
@@ -134,8 +149,9 @@ h1 {
 
         font-size: 1.2em;
 
-        -webkit-transform: translateY(-100%) translatez(-1px);
-                transform: translateY(-100%) translatez(-1px);
+
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
         &:after {
             position: absolute;
             bottom: 0;
@@ -149,6 +165,7 @@ h1 {
             border-bottom: 2px solid #fff;
         }
     }
+
     .code {
         top: 50%;
 
@@ -156,16 +173,23 @@ h1 {
 
         font-size: 1.4em;
 
-        -webkit-transform: translateY(100%) translatez(-1px);
-                transform: translateY(100%) translatez(-1px);
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+
+}
+
+@for $i from 1 through length($colors-list) {
+    .hex-container:nth-child(#{length($colors-list)}n+#{$i}) .img {
+        background: nth($colors-list, $i);
     }
 }
 
-
-@for $i from 1 through length($colors-list) {
-	.hex-container:nth-child(#{length($colors-list)}n+#{$i}) .img {
-		background: nth($colors-list, $i);
-	}
+.label-black {
+    color: #3e464c;
+    &:after {
+        border-color: #3e464c;
+    }
 }
 
 
